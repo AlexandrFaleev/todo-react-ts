@@ -1,73 +1,42 @@
-# React + TypeScript + Vite
+# 📋 React To-Do List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Простое и элегантное приложение для управления задачами, созданное на современном стеке React + TypeScript.
 
-Currently, two official plugins are available:
+![Приложение To-Do List](public/todo-demo-screen.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Особенности
 
-## React Compiler
+- ✅ **Создание задач** – быстрое добавление новых задач через интуитивный интерфейс
+- 🔍 **Поиск задач** – мгновенный поиск по названию задачи
+- 📊 **Счетчик задач** – отображение общего количества задач
+- 🎨 **Современный дизайн** – чистый и минималистичный интерфейс
+- 📱 **Адаптивность** – корректное отображение на мобильных устройствах
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Технологии
 
-## Expanding the ESLint configuration
+- **React 18** – библиотека для построения пользовательских интерфейсов
+- **TypeScript** – статическая типизация для надежности кода
+- **Vite** – современный сборщик для быстрой разработки
+- **SCSS** – препроцессор для удобной стилизации
+- **CSS Modules** – изоляция стилей компонентов
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Быстрый старт
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Предварительные требования
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Node.js 16 или выше
+- npm или yarn
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Установка
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+```bash
+# Клонирование репозитория
+git clone git@github.com:AlexandrFaleev/todo-react-ts.git
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+# Переход в директорию проекта
+cd todo-react-ts
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+# Установка зависимостей
+npm install
+# или
+yarn install
