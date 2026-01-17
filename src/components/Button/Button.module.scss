@@ -1,0 +1,22 @@
+@use './../../styles/variables' as *;
+
+.button{
+    display: inline-flex;
+    align-items: center;
+    padding: 10px;
+    height: $input-height;
+    border: $border;
+    border-radius: $border-radius;
+    border-color: $black;
+    color: $white;
+    background-color: $black;
+
+    &:hover{
+        color: $black;
+        background-color: $white;
+    }
+
+    &:active{
+        scale: 1.05;
+    }
+}

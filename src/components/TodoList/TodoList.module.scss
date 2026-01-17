@@ -1,0 +1,13 @@
+@use './../../styles/variables' as *;
+
+.todo__list{
+    display: grid;
+    row-gap: 10px;
+}
+
+.emptyMsg{
+    font-size: 20px;
+    font-weight: 500;
+    color: $dark-gray-2;
+    text-align: center;
+}
