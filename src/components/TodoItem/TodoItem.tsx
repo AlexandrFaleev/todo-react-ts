@@ -20,6 +20,7 @@ const TodoItem:React.FC<ItemProps> = ({
         onItemCheckBoxChange
     } = useContext(TasksContext)
 
+
     return(
         <li className={`todo__item ${styles.todoItem}`}>
             <input
@@ -27,7 +28,7 @@ const TodoItem:React.FC<ItemProps> = ({
                 id={id}
                 className={styles.todoItem__checkbox}
                 checked={isDone}
-                onChange={() => onItemCheckBoxChange(id)} 
+                onChange={() => onItemCheckBoxChange(id, !isDone)}
             />
             <label
                 htmlFor={id}

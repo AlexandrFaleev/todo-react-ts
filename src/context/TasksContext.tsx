@@ -2,17 +2,17 @@ import {createContext} from "react";
 import useTasks from "../hooks/useTasks.ts";
 
 interface Task{
-    id:string,
+    id:string | null,
     title:string,
     isDone:boolean,
 }
 
 interface TasksContextType{
-    tasks:Task[],
+    tasks:Task[] | null,
     filteredTasks:Task[] | null,
     onDeleteAllButtonClick: () => void,
     onDeleteItemButtonClick: (taskId:string) => void,
-    onItemCheckBoxChange: (taskId:string) => void,
+    onItemCheckBoxChange: (taskId:string, isDone:boolean) => void,
     onAddTaskFormSubmit: (event:any) => void,
     newTaskName: string,
     onNewTaskFieldInput: ({target}:any) => void,
