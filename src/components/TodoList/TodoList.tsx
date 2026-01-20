@@ -1,6 +1,9 @@
 import TodoItem from '../TodoItem/TodoItem';
+import {  useContext, memo } from "react";
+import {TasksContext} from "../../context/TasksContext.tsx";
 
 import styles from './TodoList.module.scss';
+
 
 interface ItemProps{
     id:string,
@@ -8,20 +11,14 @@ interface ItemProps{
     isDone:boolean,
 }
 
-interface listProps{
-    items:ItemProps[],
-    emptyMessageText:string,
-    onDeleteItemButtonClick:(id:string) => void,
-    onItemCheckBoxChange:(id:string) => void,
-}
+const TodoList:React.FC = () => {
+    const { tasks, filteredTasks } = useContext(TasksContext);
 
-const TodoList:React.FC<listProps> = ({
-    items,
-    emptyMessageText,
-    onDeleteItemButtonClick,
-    onItemCheckBoxChange
-}) => {
-    if(items.length === 0){
+    const emptyMessageText:any = filteredTasks?.length === 0 ? 'Задачи не найдены'
+            : tasks.length === 0 ? 'У вас пока нет задач!'
+                : ''
+
+    if((filteredTasks ?? tasks).length === 0){
         return(
             <div className={styles.emptyMsg}>
                 {emptyMessageText}
@@ -31,18 +28,16 @@ const TodoList:React.FC<listProps> = ({
     
     return(
         <ul className={styles.todo__list}>
-            {items.map((item:ItemProps) => (
+            {(filteredTasks ?? tasks).map((item:ItemProps) => (
                 <TodoItem
                     id={item.id}
                     title={item.title}
                     isDone={item.isDone}
                     key={item.id}
-                    onDeleteItemButtonClick={onDeleteItemButtonClick}
-                    onItemCheckBoxChange={onItemCheckBoxChange}
                 />
             ))}
         </ul>
     )
 }
 
-export default TodoList;
+export default memo(TodoList);

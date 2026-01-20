@@ -1,15 +1,14 @@
 import Field from '../Field/Field';
 import styles from './SearchTaskForm.module.scss';
+import {useContext} from "react";
+import {TasksContext} from "../../context/TasksContext.tsx";
 
-interface SearchTaskFormProps{
-    queryString:string,
-    onSearchInput:({target}: React.FormEvent) => void,
-}
+const SearchTaskForm:React.FC = () => {
+    const {
+        queryString,
+        onSearchInput
+    } = useContext(TasksContext)
 
-const SearchTaskForm:React.FC<SearchTaskFormProps> = ({
-    queryString,
-    onSearchInput
-}) => {
     return(
         <form 
             className={styles.todo__form}

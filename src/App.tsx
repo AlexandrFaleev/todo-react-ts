@@ -1,9 +1,12 @@
 import Todo from './components/Todo/Todo.tsx'
+import {TasksProvider} from "./context/TasksContext.tsx";
 
 function App() {
-  
   return (
-    <Todo />
+    <TasksProvider>
+      <Todo />
+    </TasksProvider>
+
   )
 }
 

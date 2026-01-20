@@ -1,20 +1,25 @@
+import {useContext, memo} from "react";
+import {TasksContext} from "../../context/TasksContext.tsx";
 import styles from './TodoItem.module.scss';
+
 
 interface ItemProps{
     id:string,
     title:string,
     isDone:boolean,
-    onDeleteItemButtonClick:(id:string) => void,
-    onItemCheckBoxChange:(id:string) => void,
 }
 
 const TodoItem:React.FC<ItemProps> = ({
     id,
     title,
     isDone,
-    onDeleteItemButtonClick,
-    onItemCheckBoxChange,
 }) => {
+
+    const {
+        onDeleteItemButtonClick,
+        onItemCheckBoxChange
+    } = useContext(TasksContext)
+
     return(
         <li className={`todo__item ${styles.todoItem}`}>
             <input
@@ -44,4 +49,4 @@ const TodoItem:React.FC<ItemProps> = ({
     )
 }
 
-export default TodoItem;
+export default memo(TodoItem);

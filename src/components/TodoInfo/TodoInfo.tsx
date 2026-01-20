@@ -1,16 +1,16 @@
+import {useContext, memo} from "react";
+import {TasksContext} from "../../context/TasksContext.tsx";
 import styles from './TodoInfo.module.scss';
 
-interface TodoInfoProps{
-    totalTasks:number,
-    onDeleteAllButtonClick:()=>void,
-}
+const TodoInfo:React.FC = () => {
+    const {
+        tasks,
+        onDeleteAllButtonClick
+    } = useContext(TasksContext);
 
-const TodoInfo:React.FC<TodoInfoProps> = ({
-    totalTasks=0,
-    onDeleteAllButtonClick,
-}) => {
-
+    const totalTasks:number = tasks.length;
     const isDeleteButtonShown:boolean = totalTasks > 0
+
 
     return (
         <div className={styles.todo__info}>
@@ -30,4 +30,4 @@ const TodoInfo:React.FC<TodoInfoProps> = ({
     )
 }
 
-export default TodoInfo;
+export default memo(TodoInfo);
